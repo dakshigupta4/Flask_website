@@ -1,0 +1,13 @@
+import json
+from datetime import datetime
+
+# Save to JSON file
+def save_to_json(name, email, message):
+    data = {
+        "name": name,
+        "email": email,
+        "message": message,
+        "timestamp": datetime.now().isoformat()
+    }
+    with open('submissions.json', 'a') as f:
+        f.write(json.dumps(data) + '\n')  # Append new entry as a line
